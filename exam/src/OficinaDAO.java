@@ -74,7 +74,7 @@ public class OficinaDAO {
                           VALUES ("B36099887", "Pesca e Mar Cooperativa",       "Porto Pesqueiro, s/n",    "Marín",         "Pontevedra") """;
             ps.executeUpdate(sql);
             con.close();
-            System.out.printf("Datos de exemplo insertados");
+            System.out.println("Datos de exemplo insertados");
         }catch (SQLException e){
             System.out.println("Erro o insertar os datos de exemplo: " + e.getMessage());
         }
@@ -90,6 +90,7 @@ public class OficinaDAO {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1,cif);
             ResultSet rs = ps.executeQuery();
+
 
             while (rs.next()){
                 String nom = rs.getString("nome");
@@ -108,7 +109,6 @@ public class OficinaDAO {
             System.out.println("Error al importar oficina" + e.getMessage());
         }
         return lista;
-
     }
 
     public static void actualizarOficina(Oficina c, String cif) {
